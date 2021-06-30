@@ -1,0 +1,137 @@
+
+nav.my-header {
+	padding: 0.5em;
+	display: table;
+	width: 100%;
+	background-color: #eee;
+	border-bottom: #444;
+	z-index: 1024;
+}
+nav.fixed-top {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+}
+nav.my-header > .header-item {
+	white-space: nowrap;
+	display: table-cell;
+	vertical-align: middle;
+}
+nav.my-header > .header-item > p {
+	margin: 0;
+	padding: 0;
+}
+nav.my-header > .header-btn {
+	width: 40px;
+}
+nav.my-header > .header-fill {
+	width: 100%;
+}
+nav.my-header > .header-center {
+	text-align: center;
+}
+
+
+div#full-panel{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	padding-top: 70px;
+}
+div#container-base {
+	margin: auto auto;
+	display: table;
+}
+div#top-level-container {
+	display: table-row;
+}
+div.nodecontainer {
+	display: table-cell;
+}
+div.nodecontainer.calcing {
+	border: solid 0.25em #eef;
+	border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+}
+div#top-level-container > div.nodecontainer {
+}
+div.children > div.nodecontainer {
+}
+
+div.nodecontainer > div.node {
+	text-align: center;
+	margin: 1ex;
+}
+div.nodecontainer > div.node > span.element {
+	padding: 0.25em 0.75em;
+	border: 2px solid gray;
+	border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	background-color: white;
+}
+div.nodecontainer > div.relations {
+	height: 1.5em;
+}
+/*div.nodecontainer > div.children {
+	margin-top: 1em;
+	padding-top: 1em;
+	border-top: 1px solid #444;
+	border-radius: 1em;
+	text-align: center;
+}
+div.nodecontainer > div.children:empty {
+	border: none;
+}*/
+
+
+canvas#line {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 0;
+}
+
+
+table.dentak { margin: 1ex auto 0.5ex auto; }
+table.dentak td {
+	min-width: 8ex;
+	padding: 0.5ex 1ex 1ex 0.5ex; 
+}
+table.dentak td input {
+	text-align: right;
+}
+
+#files > li.file-item > div {
+	display: table-cell;
+}
+#files > li.file-item > div.file-name {
+	width: 100%;
+	padding: 0 1em;
+}
+#files > li.file-item > div.file-edit {
+	display: none;
+}
+#files > li.file-item.active > div.file-edit {
+	display: table-cell;
+}
+#files > li.file-item > div.file-delete {
+	display: none;
+}
+#files > li.file-item.active > div.file-delete {
+	display: table-cell;
+}
+
+#action > button {
+	margin-top: 1.5em;
+}
+
+#files {
+	margin-top: 1.5em;
+}
