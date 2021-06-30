@@ -1,11 +1,11 @@
 Polish Calculator
------------------
+=================
 visual polish calculator
 
 * [Demo](https://yamahei.github.io/polish/index.html)
 
 Overview
-========
+--------
 
 * 昔作ったものが出てきたので公開
 * 四則演算の構文木で遊ぶツール
@@ -14,6 +14,6 @@ Overview
 * 作った構文木が保存できる（力技…）
 
 Usage
-=====
+-----
 
 TODO...
