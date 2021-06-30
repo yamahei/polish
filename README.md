@@ -2,6 +2,8 @@ Polish Calculator
 -----------------
 visual polish calculator
 
+* [Demo](https://yamahei.github.io/polish/index.html)
+
 Overview
 ========
 
