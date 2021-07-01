@@ -16,4 +16,28 @@ Overview
 Usage
 -----
 
-TODO...
+### 画面
+
+![image](img/tree-min.png)
+
+📁セーブ/ロード
+: 作成した構文木を保存と読込が出来ます。
+
+🖩計算
+: 作成した構文木全体を計算します。
+
+(+)ノード
+: 構文木を構成します。数値、演算子、undefinedのいずれかが入ります。
+: クリックすると[ダイアログ](#ダイアログ)を開きます。
+
+### ダイアログ
+
+![image](img/dialog_number-min.png)
+: 数値を入力します。
+
+![image](img/dialog_function-min.png)
+: 演算子を入力します。
+
+![image](img/dialog_action-min.png)
+: undefinedを入力します（配下ノードも消えます）。
+: 現在のノードを計算します。
