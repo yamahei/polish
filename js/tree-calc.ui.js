@@ -1,5 +1,5 @@
 $(function(){
-	var delay = 250;
+	var delay = 200;
 	var global = window;
 	var biz = global.tree_calc;
 	var node_template = $('#node-template').text();
@@ -14,7 +14,7 @@ $(function(){
 	var storage = global.myLocalStorage.getAccessor('polish', []);
 	var current = '';
 
-	
+
 	var node_status = function(targetnodecontainer){
 		var contaner = targetnodecontainer;
 		var node = $(contaner).children(node_path);
@@ -30,7 +30,7 @@ $(function(){
 			'childs': childs,
 		};
 	}
-		
+
 	// init modal
 	var dentak = $('#dentak');
 	var panel = $('#panel');
@@ -46,7 +46,7 @@ $(function(){
 		}else if($(this).hasClass('btn-zer')){
 			if(value !== '0'){ value += '' + $(this).text(); }
 		}else if($(this).hasClass('btn-dot')){
-			if(value.indexOf('.') < 0){ value += '' + $(this).text(); }				
+			if(value.indexOf('.') < 0){ value += '' + $(this).text(); }
 		}
 		if(value === '' || value === '00'){ value = '0'; }
 		if(value === '.'){ value = '0.'; }
@@ -63,8 +63,8 @@ $(function(){
 		if(!biz.functions[key]){
 			label = key;
 			exclass = 'btn-danger';
-		}else{ 
-			label = biz.functions[key].icon + ' [' + key + ']'; 
+		}else{
+			label = biz.functions[key].icon + ' [' + key + ']';
 			exclass = 'btn-default';
 		}
 		$(button).addClass(classname).addClass(exclass).text(label).attr('cmdtype', key);
@@ -124,7 +124,7 @@ $(function(){
 			$(canvas).show();
 		}, delay);
 	});
-	
+
 	var calc_root_class = 'calcing';
 	var calc_func = function(node){
 		$(node).addClass(calc_root_class);
@@ -132,8 +132,12 @@ $(function(){
 			var tree = getnode_func(node);
 			try{
 				var formula = biz.calc(tree);
+				var polish = biz.to_polish(tree);
 				var answer = eval(formula);
-				alert(answer + ' = ' + formula);
+				alert(
+					answer + ' = ' + formula +
+					'\npolish: ' + polish
+				);
 			}catch(e){
 				alert(e);
 			}
@@ -141,12 +145,12 @@ $(function(){
 		};
 		drill_func(node, callback, false);
 	};
-	
+
 	var panel = $('#panel');
 	var entry_func = function(targetnodecontainer, callback){
 		var status = node_status(targetnodecontainer);
 		var type = status.type;
-		
+
 		//init dialog
 		var dialog = $('#modal-example');
 		var tabs = $('ul.nav-tabs', $(dialog));
@@ -161,7 +165,7 @@ $(function(){
 		else{ $(panel).val(type); }
 		$('.btn-ok', $(dentak)).unbind().on('click', function(){
 			callback($(panel).val());
-			$(dialog).modal('hide');			
+			$(dialog).modal('hide');
 		});
 		//init command
 		var classname = 'button.btn-' + type;
@@ -180,7 +184,7 @@ $(function(){
 			$(dialog).modal('hide');
 			callback('undefined');
 		});
-		
+
 
 		$(dialog).modal('show');
 	};
@@ -248,7 +252,7 @@ $(function(){
 					drill_func(parent, callback, true);
 				}, delay);
 			}else{
-				setTimeout(function(){ callback(); }, delay * 2);				
+				setTimeout(function(){ callback(); }, delay * 2);
 			}
 			if(status.type=='undefined'){
 				$(status.element).css({'background-color': 'red'});
@@ -258,7 +262,7 @@ $(function(){
 				}, delay);
 			}
 		}
-		
+
 	};
 
 	var getnode_func = function(node){
@@ -292,7 +296,7 @@ $(function(){
 			btn_edit: $('div.file-edit button', $(listitem)),
 			span_name: $('div.file-name', $(listitem)),
 		};
-		
+
 	};
 	var open_func = function(filename){
 		var list = storage.getData();
@@ -350,7 +354,7 @@ $(function(){
 				open_func(filename);
 				$(fileIO).modal('hide');
 			});
-			
+
 			$(files).append($(listitem.element));
 		}
 		$(fileIO).modal('show');
@@ -364,7 +368,7 @@ $(function(){
 		saveas_func();
 	});
 
-	
+
 	$(top).on('click', element_path, function(){
 		var container = $(this).parent().parent();
 		entry_func(container, function(entry){
@@ -382,5 +386,5 @@ $(function(){
 
 	var root = $(node_template);
 	$(top).append($(root));
-	
+
 });
